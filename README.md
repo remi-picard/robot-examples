@@ -23,4 +23,5 @@ pre-commit install
 source env/bin/activate
 robot -t "Hello World" tests
 robot -t "Mon Premier Test" tests
+robot -P. tests/03-variable.robot
 ```
