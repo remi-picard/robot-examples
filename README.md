@@ -34,4 +34,5 @@ robot -P. tests/04-evaluate_python.robot
 robot -P. tests/05-mes_premiers_keywords.robot
 robot -P. tests/06-requests_library.robot
 robot -P. tests/07-browser_library.robot
+robot -P. tests/08-test_template.robot
 ```
