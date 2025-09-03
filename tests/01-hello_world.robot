@@ -1,3 +1,3 @@
 *** Test Cases ***
 Hello World
-    Log  Hello World
+    Log    Hello World

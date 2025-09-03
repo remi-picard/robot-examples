@@ -9,6 +9,14 @@ pip install -r requirements.txt
 robot --help
 ```
 
+Configure le formattage automatique du code au moment du commit :
+
+```bash
+pre-commit install
+# pre-commit installed at .git/hooks/pre-commit
+```
+
+
 ## Lancement
 
 ```
