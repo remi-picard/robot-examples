@@ -39,4 +39,5 @@ robot -P. tests/09-bdd.robot
 robot -P. tests/10-assertions.robot
 robot -P. tests/11-jinja.robot
 robot -P. tests/12-wait_until.robot
+robot -P. tests/13-group.robot
 ```
