@@ -22,4 +22,5 @@ pre-commit install
 ```
 source env/bin/activate
 robot -t "Hello World" tests
+robot -t "Mon Premier Test" tests
 ```
