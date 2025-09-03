@@ -25,4 +25,5 @@ robot -t "Hello World" tests
 robot -t "Mon Premier Test" tests
 robot -P. tests/03-variable.robot
 robot -P. tests/04-evaluate_python.robot
+robot -P. tests/05-mes_premiers_keywords.robot
 ```
