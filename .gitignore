@@ -4,3 +4,4 @@ report.html
 output.xml
 playwright-log.txt
 browser/
+data/output
