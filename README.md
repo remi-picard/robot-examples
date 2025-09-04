@@ -42,4 +42,5 @@ robot -P. tests/12-wait_until.robot
 robot -P. tests/13-group.robot
 robot -P. --variablefile conf/local.yaml tests/14-variablefile.robot
 robot -P. -V conf/dev.yaml tests/14-variablefile.robot
+ENV=local;robot -P. tests/15-variable_env.robot
 ```
