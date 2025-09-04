@@ -40,4 +40,6 @@ robot -P. tests/10-assertions.robot
 robot -P. tests/11-jinja.robot
 robot -P. tests/12-wait_until.robot
 robot -P. tests/13-group.robot
+robot -P. --variablefile conf/local.yaml tests/14-variablefile.robot
+robot -P. -V conf/dev.yaml tests/14-variablefile.robot
 ```
