@@ -48,4 +48,5 @@ robot -P. --removekeywords PASSED --removekeywords WUKS tests/17-remove_keywords
 robot -P. --flattenkeywords ITERATION tests/18-flatten_keywords.robot
 robot -P. tests/19-tuple.robot
 robot -P. tests/20-class_dataclass.robot
+robot -P. tests/21-list_comprehension.robot
 ```
