@@ -44,4 +44,5 @@ robot -P. --variablefile conf/local.yaml tests/14-variablefile.robot
 robot -P. -V conf/dev.yaml tests/14-variablefile.robot
 ENV=local;robot -P. tests/15-variable_env.robot
 robot -P. tests/16-log_from_python.robot
+robot -P. --removekeywords PASSED --removekeywords WUKS tests/17-remove_keywords.robot
 ```
