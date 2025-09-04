@@ -5,7 +5,7 @@ Library     Browser
 *** Test Cases ***
 Go To Playwright With Browser Library
     # Opens a new browser instance. Use this keyword for quick experiments or debugging sessions.
-    Open Browser
+    IF    "%{ENV=}" == "local"    Open Browser
 
     New Page    https://playwright.dev/
     Get Title    contains    Playwright
