@@ -1,0 +1,23 @@
+{
+    "Robot Test Case": {
+        "prefix": "test",
+        "body": [
+            "${1:Test Case Name}",
+            "    [Documentation]    ${2:Test description}",
+            "    ${3:# Test steps here}",
+            "    Log    ${4:Test completed}"
+        ],
+        "description": "Create a new Robot Framework test case"
+    },
+    "Robot Keyword": {
+        "prefix": "keyword",
+        "body": [
+            "${1:Keyword Name}",
+            "    [Documentation]    ${2:Keyword description}",
+            "    [Arguments]    ${3:\\${arg1}}",
+            "    ${4:# Keyword implementation}",
+            "    Log    ${5:Keyword executed}"
+        ],
+        "description": "Create a new Robot Framework keyword"
+    }
+}
