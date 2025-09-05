@@ -50,4 +50,5 @@ robot -P. tests/19-tuple.robot
 robot -P. tests/20-class_dataclass.robot
 robot -P. tests/21-list_comprehension.robot
 robot -P. tests/booker/booker.robot
+robot -P. tests/todo_mvc/todo_mvc.robot
 ```
