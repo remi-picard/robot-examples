@@ -1,0 +1,20 @@
+services:
+  backend:
+    image: picardremi/robot-flower-princess:master
+    ports:
+      - "8000:8000"
+    networks:
+      - robot-flower-princess-network
+
+  frontend:
+    image: picardremi/robot-flower-princess-ui:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - robot-flower-princess-network
+
+networks:
+  robot-flower-princess-network:
+    driver: bridge
