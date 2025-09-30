@@ -2,10 +2,13 @@
 Teste Les Tuples
     ${robots}=    Get Robots
     Log    ${robots}
+    ${robots_type}=    Evaluate    type($robots)
+    Log    ${robots_type}
     Log    ${robots[0]}
     Log    ${robots[1]}
 
 
 *** Keywords ***
 Get Robots
-    RETURN    R2D2    C3PO
+    ${robots}=    Evaluate    ("R2D2", "C3PO")
+    RETURN    ${robots}
