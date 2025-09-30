@@ -6,6 +6,7 @@ Resource    resources/todo_mvc/todo_mvc.resource
 *** Test Cases ***
 Créer Une Nouvelle Tâche
     # Open Browser
+    New Browser    browser=firefox    headless=${False}    slowMo=0.3 seconds
 
     Go To Todo Mvc
     Create Task    Python
