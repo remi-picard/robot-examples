@@ -14,6 +14,10 @@ Creation Variable
     ${ma_variable}    Set Variable    C3PO
     Log    ma_variable=${ma_variable}
 
+    # Nouvelle syntaxe RF>=7.0
+    VAR    ${ma_variable}    C3PO
+    Log    ma_variable=${ma_variable}
+
 Utiliser Variable Python
     Log    variable_python=${variable_python}
 
