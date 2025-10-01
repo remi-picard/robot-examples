@@ -15,3 +15,11 @@ repos:
   hooks:
     # Run the formatter.
     - id: robocop-format
+- repo: local
+  hooks:
+    - id: robot-dryrun
+      name: robot-dryrun
+      entry: venv/bin/robot -P. --dryrun tests
+      language: system
+      verbose: true
+      pass_filenames: false
