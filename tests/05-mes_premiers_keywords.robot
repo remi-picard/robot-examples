@@ -9,9 +9,13 @@ Appel Keywords
     Keyword Avec ${arg1} Intégré Et Arguments    Arg2
 
     ${list}    Create List    1    2    3
+    # Nouvelle syntaxe
+    VAR    @{list}    1    2    3
     Keyword Avec Args    ${list}
 
     ${map}    Create Dictionary    cle1=valeur1    cle2=valeur2
+    # Nouvelle syntaxe
+    VAR    &{map}    cle1=valeur1    cle2=valeur2
     Keyword Avec Kwargs    &{map}
 
 
