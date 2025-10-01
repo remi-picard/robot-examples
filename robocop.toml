@@ -1,0 +1,15 @@
+[tool.robocop.lint]
+select = [
+    "parsing-error",
+    "missing-keyword-name",
+    "variables-import-with-args",
+    "invalid-continuation-mark",
+    "non-existing-setting",
+    "setting-not-supported",
+    "invalid-for-loop",
+    "invalid-if",
+    "return-in-test-case",
+    "invalid-section-in-resource",
+    "invalid-setting-in-resource",
+    "unsupported-setting-in-init-file",
+]

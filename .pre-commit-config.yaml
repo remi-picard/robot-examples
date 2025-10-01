@@ -13,6 +13,8 @@ repos:
   # Robocop version.
   rev: v6.7.1
   hooks:
+    # Run the linter.
+    - id: robocop
     # Run the formatter.
     - id: robocop-format
 - repo: local
