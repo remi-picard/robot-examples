@@ -3,7 +3,7 @@ Resource    resources/booker/booker_api.resource
 
 
 *** Test Cases ***
-Modifier La Réservation
+Create And Update Booking
     ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
     ${response}    Get Booking    ${booking_id}
@@ -36,7 +36,7 @@ Modifier La Réservation
     Should Be Equal As Strings    ${response}[bookingdates][checkout]    2025-10-03
     Should Be Equal As Strings    ${response}[additionalneeds]    Parking
 
-Modifier La Réservation Sans Token
+Update Booking Without Token
     ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
 
@@ -52,7 +52,7 @@ Modifier La Réservation Sans Token
     ...    Parking
     ...    expected_status=403
 
-Supprimer Réservation
+Delete Booking
     ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
 
@@ -63,7 +63,7 @@ Supprimer Réservation
 
     Get Booking    ${booking_id}    expected_status=404
 
-Supprimer Réservation Avec Token Invalide
+Delete Booking With Invalid Token
     ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
 
