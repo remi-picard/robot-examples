@@ -7,13 +7,15 @@ Create And Update Booking
     ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
     ${response}    Get Booking    ${booking_id}
-    Should Be Equal As Strings    ${response}[firstname]    Rémi
-    Should Be Equal As Strings    ${response}[lastname]    PICARD
-    Should Be Equal As Strings    ${response}[totalprice]    300
-    Should Be Equal As Strings    ${response}[depositpaid]    True
-    Should Be Equal As Strings    ${response}[bookingdates][checkin]    2025-10-01
-    Should Be Equal As Strings    ${response}[bookingdates][checkout]    2025-10-03
-    Should Be Equal As Strings    ${response}[additionalneeds]    Breakfast
+
+    VAR    &{booking_dates}    checkin=2025-10-01    checkout=2025-10-03
+    Assert Booking
+...    firstname=Rémi
+...    lastname=PICARD
+...    totalprice=300
+...    depositpaid=True
+...    bookingdates=${booking_dates}
+...    additionalneeds=Breakfast
 
     ${response}    Get Auth Token    admin    password123
     ${token}    Set Variable    ${response}[token]
@@ -28,13 +30,14 @@ Create And Update Booking
     ...    2025-10-01
     ...    2025-10-03
     ...    Parking
-    Should Be Equal As Strings    ${response}[firstname]    Rémi
-    Should Be Equal As Strings    ${response}[lastname]    PICARD
-    Should Be Equal As Strings    ${response}[totalprice]    342
-    Should Be Equal As Strings    ${response}[depositpaid]    True
-    Should Be Equal As Strings    ${response}[bookingdates][checkin]    2025-10-01
-    Should Be Equal As Strings    ${response}[bookingdates][checkout]    2025-10-03
-    Should Be Equal As Strings    ${response}[additionalneeds]    Parking
+
+    Assert Booking
+...    firstname=Rémi
+...    lastname=PICARD
+...    totalprice=342
+...    depositpaid=True
+...    bookingdates=${booking_dates}
+...    additionalneeds=Parking
 
 Update Booking Without Token
     ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
@@ -68,3 +71,18 @@ Delete Booking With Invalid Token
     ${booking_id}    Set Variable    ${response}[bookingid]
 
     Delete Booking    ${booking_id}    WrongToken    expected_status=403
+
+
+*** Keywords ***
+Assert Booking
+    [Arguments]    &{booking}
+    FOR    ${field}    ${expected}    IN    &{booking}
+        ${is_dict}    Evaluate    isinstance($expected, dict)
+        IF    ${is_dict}
+            FOR    ${field_level2}    ${expected}    IN    &{booking}[${field}]
+                Should Be Equal As Strings    ${booking}[${field}][${field_level2}]    ${expected}
+            END
+        ELSE
+            Should Be Equal As Strings    ${booking}[${field}]    ${expected}
+        END
+    END
