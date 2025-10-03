@@ -56,4 +56,5 @@ robot -P. --expandkeywords name:BuiltIn.Log -t "Deliver Flower To Princess" test
 python resources/list_tests.py
 robot --listener resources/pause_listener.py tests/22-failed-test.robot
 robot -P. --dryrun tests
+docker run -it --rm --ipc=host -v $(pwd):/test --user pwuser -w /test marketsquare/robotframework-browser:latest robot -P. -t "Test Headless In Docker" .
 ```

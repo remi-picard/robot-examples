@@ -41,3 +41,10 @@ Créer Une Nouvelle Tâche
     Length Should Be    ${tasks}    0
 
     # Close Browser
+
+Test Headless In Docker
+    New Browser
+    # Décommenter en cas de problème SSL
+    # New Context    ignoreHTTPSErrors=${True}
+    New Page    https://todomvc.com/examples/react/dist/
+    Take Screenshot
