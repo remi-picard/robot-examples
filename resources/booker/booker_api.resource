@@ -25,6 +25,7 @@ Create Booking
     RETURN    ${response}
 
 Update Booking
+    [Documentation]    Update Booking using Cookie Header with auth token
     [Arguments]
     ...    ${booking_id}
     ...    ${token}
@@ -55,10 +56,10 @@ Get Booking
     RETURN    ${response}
 
 Delete Booking
-    [Arguments]    ${booking_id}    ${token}    ${expected_status}=201
-    ${headers}=    Create Dictionary    Cookie=token=${token}
+    [Documentation]    Delete Booking using Basic Auth
+    [Arguments]    ${booking_id}    ${auth}    ${expected_status}=201
     ${response}=    DELETE    ${BOOKER_API_URL}/booking/${booking_id}    expected_status=${expected_status}
-    ...    headers=${headers}
+    ...    auth=${auth}
     ${response}=    Handle Response    ${response}
     RETURN    ${response}
 

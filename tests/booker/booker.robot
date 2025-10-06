@@ -59,10 +59,8 @@ Delete Booking
     ${response}    Create Booking    Rémi    PICARD    ${300}    ${True}    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
 
-    ${response}    Get Auth Token    admin    password123
-    ${token}    Set Variable    ${response}[token]
-
-    Delete Booking    ${booking_id}    ${token}
+    ${auth}    Set Variable    ${{("admin", "password123")}}
+    Delete Booking    ${booking_id}    ${auth}
 
     Get Booking    ${booking_id}    expected_status=404
 
@@ -70,7 +68,8 @@ Delete Booking With Invalid Token
     ${response}    Create Booking    Rémi    PICARD    ${300}    ${True}    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
 
-    Delete Booking    ${booking_id}    WrongToken    expected_status=403
+    ${wrong_auth}    Set Variable    ${{("admin", "password")}}
+    Delete Booking    ${booking_id}    ${wrong_auth}    expected_status=403
 
 
 *** Keywords ***
