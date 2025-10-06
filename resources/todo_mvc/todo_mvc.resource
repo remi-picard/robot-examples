@@ -68,6 +68,10 @@ Assert Number Of Left Tasks Is ${nb}
 Clear Tasks
     Click    ${CLEAR_COMPLETED}
 
+Assert Tasks
+    [Arguments]    ${tasks}    @{expected_tasks}
+    Lists Should Be Equal    ${tasks}    ${expected_tasks}
+
 Get Num Task
     [Tags]    robot:private
     [Arguments]    ${search}
