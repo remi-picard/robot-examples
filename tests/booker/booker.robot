@@ -4,7 +4,7 @@ Resource    resources/booker/booker_api.resource
 
 *** Test Cases ***
 Create And Update Booking
-    ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
+    ${response}    Create Booking    Rémi    PICARD    ${300}    ${True}    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
     ${response}    Get Booking    ${booking_id}
 
@@ -25,8 +25,8 @@ Create And Update Booking
     ...    ${token}
     ...    Rémi
     ...    PICARD
-    ...    342
-    ...    True
+    ...    ${342}
+    ...    ${True}
     ...    2025-10-01
     ...    2025-10-03
     ...    Parking
@@ -34,8 +34,8 @@ Create And Update Booking
     Assert Booking
 ...    firstname=Rémi
 ...    lastname=PICARD
-...    totalprice=342
-...    depositpaid=True
+...    totalprice=${342}
+...    depositpaid=${True}
 ...    bookingdates=${booking_dates}
 ...    additionalneeds=Parking
 
@@ -48,15 +48,15 @@ Update Booking Without Token
     ...    ${EMPTY}
     ...    Rémi
     ...    PICARD
-    ...    342
-    ...    True
+    ...    ${342}
+    ...    ${True}
     ...    2025-10-01
     ...    2025-10-03
     ...    Parking
     ...    expected_status=403
 
 Delete Booking
-    ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
+    ${response}    Create Booking    Rémi    PICARD    ${300}    ${True}    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
 
     ${response}    Get Auth Token    admin    password123
@@ -67,7 +67,7 @@ Delete Booking
     Get Booking    ${booking_id}    expected_status=404
 
 Delete Booking With Invalid Token
-    ${response}    Create Booking    Rémi    PICARD    300    True    2025-10-01    2025-10-03    Breakfast
+    ${response}    Create Booking    Rémi    PICARD    ${300}    ${True}    2025-10-01    2025-10-03    Breakfast
     ${booking_id}    Set Variable    ${response}[bookingid]
 
     Delete Booking    ${booking_id}    WrongToken    expected_status=403
